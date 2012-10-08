@@ -20,9 +20,18 @@ export PS1='[%m@%2/]%# '
 export PS_PERSONALITY='linux'
 export CLICOLOR=1 # colors for e.g. ls on mac
 
+export LESS_TERMCAP_mb=$'\E[01;33m' # цвет мерцающего стиля
+export LESS_TERMCAP_md=$'\E[01;31m' # цвет полужирного стиля
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;42;30m'# цвет и фон служебной информации
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m' # цвет подчеркнутого стиля
+export LESS_TERMCAP_ue=$'\E[0m'
+export GREP_COLOR="1;31"
+
 limit -s coredumpsize 0
 
-
+alias grep='grep --color=auto'
 alias be='bundle exec'
 alias h='history 25'
 alias j='jobs -l'

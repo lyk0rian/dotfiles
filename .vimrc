@@ -23,6 +23,14 @@ if &term =~ "xterm" || &term == "rxvt-unicode"
    endif
 endif
 
+" Tmux will send xterm-style keys when its xterm-keys option is on
+if &term =~ '^screen' || &term =~ "rxvt"
+  execute "set <xUp>=\e[A"
+  execute "set <xDown>=\e[B"
+  execute "set <xRight>=\e[C"
+  execute "set <xLeft>=\e[D"
+endif
+
 "-----------------------------------------------------------------------
 " settings
 "-----------------------------------------------------------------------
@@ -135,6 +143,7 @@ set laststatus=2
 map Q gq		" Don't use Ex mode, use Q for formatting
 
 " читать параметры конфигурации из открытого файла
+" НЕСЕКЬЮРНО!!! ОПОСАЙТЕСЬ ТРОЯНОВ В ТЕКСТОВЫХ ФАЙЛАХЪ!!!
 set modeline
 
 " перечитывать изменённые файлы автоматически
